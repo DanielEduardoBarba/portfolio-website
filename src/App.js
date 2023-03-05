@@ -147,7 +147,7 @@ export default function App() {
             <Divider className='project-divider' style={projectdivider} orientation="left">Online Chess Game</Divider>
             <p className='project-comments'> Built on React and CSS/HTML with an Express API</p>
             <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
-            <a href='https:chess-online-deb.firebaseapp.com'>
+            <a href='https://chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
             </a>
             <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to PLAY!</p>
