@@ -10,8 +10,8 @@ function playKeyboard() {
 let intensity=20
 const typeSpeed=1
 export default function Terminal() {
-    const [terminal, setTerminal] = useState("")
-    const [cursor, setCursor] = useState(0)
+    const [terminal, setTerminal] = useState(code)
+    const [cursor, setCursor] = useState(code.length-1)
     const [blinker, setBlinker] = useState(0)
     const [tick, setTick] = useState(1)
    

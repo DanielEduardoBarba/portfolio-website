@@ -15,8 +15,8 @@ export default function App() {
 
   let buttonEffect = document.getElementsByClassName("buttons")
   let videoEffects = document.getElementsByClassName("project-videos")
-  const upperDetect = 200
-  const lowerDetect = 0
+  const upperDetect = 400
+  const lowerDetect = 50
   const videoEffectRes =30
   const cycleSpeed = 10
 
@@ -74,9 +74,10 @@ export default function App() {
                 else setTurn(0)
             } 
             let color = `#ff0000`
-            if(turn==0) color = `#0072b1`
-            else if(turn==1) color = `#6e5494`
-            else if(turn==2) color = `#14a800`
+            if(turn===0) color = `#0072b1`
+            else if(turn===1) color = `#6e5494`
+            else if(turn===2) color = `#14a800`
+            else if(turn===4) color = `#9a902e`
             
            if(turn < buttonEffect.length) buttonEffect[turn].style.setProperty(`background`, `linear-gradient(${deg}deg, ${color} 0%, #000000 70%)`)
       } catch {
@@ -91,7 +92,9 @@ export default function App() {
   return (
     <>
       <Layout className='hero' style={heroStyle} >
-        <div className='hero-image'><Terminal/></div>
+        <div className='hero-image'>
+          {/* <Terminal/> */}
+          </div>
         <Row>
 
           <Col span={24} >
@@ -99,6 +102,7 @@ export default function App() {
             <Button className='buttons' href='https://github.com/DanielEduardoBarba?tab=repositories'>Github</Button>
             <Button className='buttons' href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>Upwork</Button>
             <Button className='buttons' href='mailto:danieleduardobarba@gmail.com'>Email</Button>
+            <Button className='buttons' href='https://www.linearprototypes.com/'>Business</Button>
           </Col>
         </Row>
         <br/>
@@ -127,10 +131,12 @@ export default function App() {
           <Col >
             <Divider className='project-divider' style={projectdivider} orientation="left">Pistol Training System</Divider>
             <p className='project-comments'> A wireless MVP prototype for firearm training using arduino and C#</p>
+            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
-            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p>See the Repo!</p></a>
               <video className='project-videos' src={pts} playsInline autoPlay loop muted />
             </a>
+            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to see more!</p>
+          
           </Col>
 
         </Row>
@@ -140,10 +146,12 @@ export default function App() {
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Online Chess Game</Divider>
             <p className='project-comments'> Built on React and CSS/HTML with an Express API</p>
-            <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p>See the Repo!</p></a>
+            <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https:chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
             </a>
+            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to PLAY!</p>
+          
           </Col>
         </Row>
 
@@ -152,14 +160,21 @@ export default function App() {
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Simple Calculator</Divider>
             <p className='project-comments'>Built with only state variables on a single React component</p>
-            <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'><p>See the Repo!</p></a>
+            <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://calculator-react-example-deb.web.app/'>
               <video className='project-videos' src={calcdemo} playsInline autoPlay loop muted />
             </a>
+            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to TRY!</p>
+          
           </Col>
         </Row>
 
       </Layout>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <br/>
       <br/>
       <br/>
