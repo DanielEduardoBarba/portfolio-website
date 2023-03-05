@@ -1,72 +1,124 @@
-import { Row, Col, Button, Layout, Image, Divider, Carousel } from 'antd';
+import { Row, Col, Button, Layout, Image, Divider } from 'antd';
 import React, { useEffect, useState } from 'react';
 import facepic from "./assets/daniel.jpg"
 import './App.css';
 import pts from "./assets/pts.mp4"
 import calcdemo from "./assets/calc-demo.mp4"
 import chessdemo from "./assets/chess-demo.mp4"
-import Terminal from "./components/Terminal"
 import { Footer } from 'antd/es/layout/layout';
+import Terminal from "./components/Terminal"
 
 export default function App() {
   const [cycle, setCycle] = useState(1)
   const [deg, setDeg] = useState(0)
+  const [turn, setTurn] = useState(0)
 
-  let videoHover = document.getElementsByClassName("project-videos")
+  let buttonEffect = document.getElementsByClassName("buttons")
+  let videoEffects = document.getElementsByClassName("project-videos")
+  const upperDetect = 200
+  const lowerDetect = 0
+  const videoEffectRes =30
+  const cycleSpeed = 10
+
 
   useEffect(() => {
+
     setTimeout(() => {
 
-      try {
-        for (let i = 0; i < videoHover.length; i++) {
+      try{
 
-          videoHover[i].style.setProperty(`background`, `linear-gradient(${deg}deg, #ff0000 0%, #000000 20%)`)
-          videoHover[i].style.setProperty(`background`, `-webkit-linear-gradient(${deg}deg, #ff0000 0%, #000000 20%)`)
-          videoHover[i].style.setProperty(`background`, `-moz-linear-gradient(`, `)${deg}deg, #ff0000 0%, #000000 20%)`)
-          if (deg <= 360) {
-           // console.log(deg)
-            setDeg(deg + 7)
-          }
-          else setDeg(1)
+      
+      
+        if(window.scrollY+upperDetect>videoEffects[0].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[0].getBoundingClientRect().top+ document.documentElement.scrollTop){
+          videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[0].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[0].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[0].style.setProperty(`border`, `4px #00ff22 solid`) 
+        }
+        else{
+          videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+          videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
+        }
+      
+        if(window.scrollY+upperDetect>videoEffects[1].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[1].getBoundingClientRect().top+ document.documentElement.scrollTop){
+          videoEffects[1].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[1].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[1].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[1].style.setProperty(`border`, `4px #00ff22 solid`) 
+        }
+        else{
+          videoEffects[1].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+          videoEffects[1].style.setProperty(`border`, `3px solid #ff0000`)
+        }
+      
+        if(window.scrollY+upperDetect>videoEffects[2].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[2].getBoundingClientRect().top+ document.documentElement.scrollTop){
+          videoEffects[2].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[2].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[2].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[2].style.setProperty(`border`, `4px #00ff22 solid`) 
+        }
+        else{
+          videoEffects[2].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+          videoEffects[2].style.setProperty(`border`, `3px solid #ff0000`)
         }
 
-      } catch {
+      }catch{
 
       }
+
+      try {
+            if (deg+videoEffectRes <= 360) setDeg(deg + videoEffectRes)
+            else{
+                setDeg(deg-360+videoEffectRes)
+                if(turn<40) setTurn(turn+1)
+                else setTurn(0)
+            } 
+            let color = `#ff0000`
+            if(turn==0) color = `#0072b1`
+            else if(turn==1) color = `#6e5494`
+            else if(turn==2) color = `#14a800`
+            
+           if(turn < buttonEffect.length) buttonEffect[turn].style.setProperty(`background`, `linear-gradient(${deg}deg, ${color} 0%, #000000 70%)`)
+      } catch {
+        
+      }
+     // console.log(deg)
       setCycle(cycle * -1)
-    }, 50)
+    }, cycleSpeed)
   }, [cycle])
 
 
   return (
     <>
-      <Layout className='heroimage' style={hero}>
+      <Layout className='hero' style={heroStyle} >
+        <div className='hero-image'><Terminal/></div>
         <Row>
 
-          <Col span={20} style={navigation} orientation="right">
-            <Button className='buttons' style={buttons} href='https://www.linkedin.com/in/daniel-e-barba/'>LinkedIn</Button>
-            <Button className='buttons' style={buttons} href='https://github.com/DanielEduardoBarba?tab=repositories'>Github</Button>
-            <Button className='buttons' style={buttons} href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>Upwork</Button>
-
+          <Col span={24} >
+            <Button className='buttons' href='https://www.linkedin.com/in/daniel-e-barba/'>LinkedIn</Button>
+            <Button className='buttons' href='https://github.com/DanielEduardoBarba?tab=repositories'>Github</Button>
+            <Button className='buttons' href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>Upwork</Button>
+            <Button className='buttons' href='mailto:danieleduardobarba@gmail.com'>Email</Button>
           </Col>
         </Row>
-        <Row gutter={30}>
+        <br/>
+        
 
-          <Col span={6} style={profilepic}>
+        <Row >
+
+          <Col span={10} style={profilepic}>
             <Image alt="face pic" className='profile-photo' src={facepic} />
           </Col>
 
-          <Col span={16} style={aboutme}>
-            {/* <Terminal/> */}
-          </Col>
-        </Row>
-        <Row>
-          <Col span={24} style={aboutme}>
-            <h1 className='aboutme'>Hey I'm Daniel!</h1>
-            <p className='aboutme'>An upcoming software engineer, with years of experience in prototyping hardware, software, electronics and manufacturing aerospace and industrial components, get in touch with me above! </p>
+          
+          <Col span={14}className='aboutme' >
+            <h1>Hey I'm Daniel!</h1>
+            <p >I'm an engineer in practice and an inventor at heart, with years of experience in prototyping hardware, software, electronics and manufacturing aerospace and industrial components, let's make your idea come alive!</p>
+            <h2 style={{fontSize:"4vw"}}>Contact me above!</h2>
 
           </Col>
         </Row>
+        
       </Layout>
 
       <Layout className='project-layout'>
@@ -74,8 +126,9 @@ export default function App() {
         <Row className='projects'  >
           <Col >
             <Divider className='project-divider' style={projectdivider} orientation="left">Pistol Training System</Divider>
-            <p className='project-comments'> An MVP prototype for firearm training</p>
-            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'>
+            <p className='project-comments'> A wireless MVP prototype for firearm training using arduino and C#</p>
+            <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
+            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p>See the Repo!</p></a>
               <video className='project-videos' src={pts} playsInline autoPlay loop muted />
             </a>
           </Col>
@@ -87,7 +140,8 @@ export default function App() {
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Online Chess Game</Divider>
             <p className='project-comments'> Built on React and CSS/HTML with an Express API</p>
-            <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'>
+            <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p>See the Repo!</p></a>
+            <a href='https:chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
             </a>
           </Col>
@@ -98,14 +152,22 @@ export default function App() {
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Simple Calculator</Divider>
             <p className='project-comments'>Built with only state variables on a single React component</p>
-            <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'>
+            <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'><p>See the Repo!</p></a>
+            <a href='https://calculator-react-example-deb.web.app/'>
               <video className='project-videos' src={calcdemo} playsInline autoPlay loop muted />
             </a>
           </Col>
         </Row>
 
       </Layout>
-      <Footer style={{ color: "white" }}>@{new Date().getFullYear()} Copyright Daniel Barba</Footer>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Footer style={{ color: "white", margin:10}}>@{new Date().getFullYear()} Copyright Daniel Barba</Footer>
 
     </>
   )
@@ -121,40 +183,18 @@ const projectdivider = {
   color: "white",
 }
 
+const heroStyle={
+  padding: 10
+}
 
 
-const hero = {
-  color: "white",
-  height: "auto",
-  paddingInline: 10,
-};
-const buttons = {
 
-  color: "white",
-  height: "auto",
-  paddingInline: 10,
-  margin: 10,
-  backgroundColor: 'transparent'
-};
-const navigation = {
-  textAlign: 'right',
-  color: "black",
-  height: 64,
-  paddingInline: 10,
-  lineHeight: '64px',
-  margin: "20px",
-  backgroundColor: 'transparent',
-};
+
 const profilepic = {
   paddingInlin: 50,
   backgroundColor: 'transparent',
 };
-const aboutme = {
-  textAlign: 'right',
-  height: "auto",
-  paddingInline: 20,
-  backgroundColor: 'transparent',
-};
+
 
 
 

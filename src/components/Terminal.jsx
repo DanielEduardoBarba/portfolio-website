@@ -7,8 +7,8 @@ function playKeyboard() {
     new Audio(keyboard).play()
 }
 
-let intensity=50
-const typeSpeed=15
+let intensity=20
+const typeSpeed=1
 export default function Terminal() {
     const [terminal, setTerminal] = useState("")
     const [cursor, setCursor] = useState(0)
@@ -24,16 +24,16 @@ export default function Terminal() {
             
             if(tick==1){
               
-              keyClick.style.setProperty('box-shadow', `0px 0px 70px ${intensity}px rgba(19, 194, 66, 1)`)
-              keyClick.style.setProperty('-webkit-box-shadow', `0px 0px 70px ${intensity}px rgba(19, 194, 66, 1)`)
-              keyClick.style.setProperty('-moz-box-shadow', `0px 0px 70px ${intensity}px rgba(19, 194, 66, 1)`)
+              keyClick.style.setProperty('box-shadow', `0px 0px 30px ${intensity}px rgba(19, 194, 66, 1)`)
+              keyClick.style.setProperty('-webkit-box-shadow', `0px 0px 30px ${intensity}px rgba(19, 194, 66, 1)`)
+              keyClick.style.setProperty('-moz-box-shadow', `0px 0px 30px ${intensity}px rgba(19, 194, 66, 1)`)
       
              }
              else{
                
-               keyClick.style.setProperty('box-shadow', `0px 0px 70px ${10}px rgba(19, 194, 66, 1)`)
-               keyClick.style.setProperty('-webkit-box-shadow', `0px 0px 70px ${10}px rgba(19, 194, 66, 1)`)
-               keyClick.style.setProperty('-moz-box-shadow', `0px 0px 70px ${10}px rgba(19, 194, 66, 1)`)
+               keyClick.style.setProperty('box-shadow', `0px 0px 20px 5px rgba(19, 194, 66, 1)`)
+               keyClick.style.setProperty('-webkit-box-shadow', `0px 0px 20px 5px rgba(19, 194, 66, 1)`)
+               keyClick.style.setProperty('-moz-box-shadow', `0px 0px 20px 5px rgba(19, 194, 66, 1)`)
          
              }
            }catch{
@@ -52,12 +52,12 @@ export default function Terminal() {
 
         if (code[cursor]) {
 
-            setTimeout(() => {
+            //setTimeout(() => {
 
                 if (code[cursor] == " ") setTerminal(terminal + String.fromCharCode(160))
                 else setTerminal(terminal + code[cursor])
                 setCursor(cursor + 1)
-            }, typeSpeed)
+           // }, typeSpeed)
 
         }
         //end of string blinking function
