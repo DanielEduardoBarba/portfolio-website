@@ -119,3 +119,19 @@
   padding-inline: 20px;
   background-color: transparent
 }
+.footer-base{
+  display: flex;
+  flex-direction: row;
+  
+}
+.footer-logo{
+  z-index: -100;
+  margin: 10vw;
+    width: 15vw;
+    height: auto;
+    background-color: white;
+    border-radius: 10vw;
+    box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
+-webkit-box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
+-moz-box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
+}

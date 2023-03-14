@@ -7,6 +7,9 @@ import calcdemo from "./assets/calc-demo.mp4"
 import chessdemo from "./assets/chess-demo.mp4"
 import pigebankDemo from "./assets/short-pigebank-demo.mp4"
 import './App.css';
+import linkedinLogo from "./assets/linkedinLogo.png"
+import upworkLogo from "./assets/upwork.png"
+import lpLogo from "./assets/LPLogo.png"
 
 
 export default function App() {
@@ -169,19 +172,25 @@ export default function App() {
           </Col>
         </Row>
 
+        <Row className='projects'  >
+          <Col >
+      <div className='footer-base'>
+      <a href='https://www.linkedin.com/in/daniel-e-barba/'>
+        <img className='footer-logo' src={linkedinLogo}/>
+        </a>
+
+        <a href='https://www.linearprototypes.com/'>
+        <img className='footer-logo' src={lpLogo}/>
+        </a>
+
+        <a href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>
+        <img className='footer-logo' src={upworkLogo}/>
+        </a>
+      </div>
+      </Col>
+        </Row>
+
       </Layout>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
       <Footer style={{ color: "white", margin:10}}>@{new Date().getFullYear()} Copyright Daniel Barba</Footer>
 
     </>
