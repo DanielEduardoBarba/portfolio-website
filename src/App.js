@@ -1,12 +1,13 @@
 import { Row, Col, Button, Layout, Image, Divider } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { Footer } from 'antd/es/layout/layout';
+import React, { useEffect, useState, useRef } from 'react';
 import facepic from "./assets/daniel.jpg"
-import './App.css';
 import pts from "./assets/pts.mp4"
 import calcdemo from "./assets/calc-demo.mp4"
 import chessdemo from "./assets/chess-demo.mp4"
-import { Footer } from 'antd/es/layout/layout';
-import Terminal from "./components/Terminal"
+import pigebankDemo from "./assets/short-pigebank-demo.mp4"
+import './App.css';
+
 
 export default function App() {
   const [cycle, setCycle] = useState(1)
@@ -15,9 +16,11 @@ export default function App() {
 
   let buttonEffect = document.getElementsByClassName("buttons")
   let videoEffects = document.getElementsByClassName("project-videos")
-  const upperDetect = 400
-  const lowerDetect = 50
-  const videoEffectRes =30
+
+  const shift = useRef(window.innerHeight).current/2
+  const borderCapture = 70
+
+  const videoEffectRes =60
   const cycleSpeed = 10
 
 
@@ -28,40 +31,24 @@ export default function App() {
       try{
 
       
-      
-        if(window.scrollY+upperDetect>videoEffects[0].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[0].getBoundingClientRect().top+ document.documentElement.scrollTop){
-          videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[0].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[0].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[0].style.setProperty(`border`, `4px #00ff22 solid`) 
+      if(window.scrollY>5){
+        for(let i=0;i<4;i++){
+        if(window.scrollY+shift>videoEffects[i].getBoundingClientRect().top+document.documentElement.scrollTop-borderCapture 
+        && window.scrollY+shift<videoEffects[i].getBoundingClientRect().bottom+document.documentElement.scrollTop+borderCapture ){
+          videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[i].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[i].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+          videoEffects[i].style.setProperty(`border`, `4px #00ff22 solid`) 
         }
         else{
-          videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
-          videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
+          videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+          videoEffects[i].style.setProperty(`border`, `3px solid #ff0000`)
         }
-      
-        if(window.scrollY+upperDetect>videoEffects[1].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[1].getBoundingClientRect().top+ document.documentElement.scrollTop){
-          videoEffects[1].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[1].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[1].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[1].style.setProperty(`border`, `4px #00ff22 solid`) 
-        }
-        else{
-          videoEffects[1].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
-          videoEffects[1].style.setProperty(`border`, `3px solid #ff0000`)
-        }
-      
-        if(window.scrollY+upperDetect>videoEffects[2].getBoundingClientRect().top+ document.documentElement.scrollTop && window.scrollY+lowerDetect<videoEffects[2].getBoundingClientRect().top+ document.documentElement.scrollTop){
-          videoEffects[2].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[2].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[2].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[2].style.setProperty(`border`, `4px #00ff22 solid`) 
-        }
-        else{
-          videoEffects[2].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
-          videoEffects[2].style.setProperty(`border`, `3px solid #ff0000`)
-        }
-
+      }}else{
+        videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+        videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
+      }
+    
       }catch{
 
       }
@@ -83,7 +70,7 @@ export default function App() {
       } catch {
         
       }
-     // console.log(deg)
+    
       setCycle(cycle * -1)
     }, cycleSpeed)
   }, [cycle])
@@ -93,7 +80,7 @@ export default function App() {
     <>
       <Layout className='hero' style={heroStyle} >
         <div className='hero-image'>
-          {/* <Terminal/> */}
+         
           </div>
         <Row>
 
@@ -127,15 +114,15 @@ export default function App() {
 
       <Layout className='project-layout'>
 
-        <Row className='projects'  >
+      <Row className='projects'  >
           <Col >
-            <Divider className='project-divider' style={projectdivider} orientation="left">Pistol Training System</Divider>
-            <p className='project-comments'> A wireless MVP prototype for firearm training using arduino and C#</p>
-            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
-            <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
-              <video className='project-videos' src={pts} playsInline autoPlay loop muted />
+            <Divider className='project-divider' style={projectdivider} orientation="left">Pig E Bank</Divider>
+            <p className='project-comments'> A finance and chore tracking app for kids!</p>
+            <a href='https://github.com/DanielEduardoBarba/pig-e-bank-app'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
+            <a href='https://pig-e-bank-app.firebaseapp.com/'>
+              <video className='project-videos' src={pigebankDemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to see more!</p>
+            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
           
           </Col>
 
@@ -150,7 +137,7 @@ export default function App() {
             <a href='https://chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to PLAY!</p>
+            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to PLAY!</p>
           
           </Col>
         </Row>
@@ -164,7 +151,20 @@ export default function App() {
             <a href='https://calculator-react-example-deb.web.app/'>
               <video className='project-videos' src={calcdemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'3vw'}}>TAP to TRY!</p>
+            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
+          
+          </Col>
+        </Row>
+
+        <Row className='projects'  >
+          <Col >
+            <Divider className='project-divider' style={projectdivider} orientation="left">Pistol Training System</Divider>
+            <p className='project-comments'> A wireless MVP prototype for firearm training using arduino and C#</p>
+            <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
+            <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
+              <video className='project-videos' src={pts} playsInline autoPlay loop muted />
+            </a>
+            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to see more!</p>
           
           </Col>
         </Row>
