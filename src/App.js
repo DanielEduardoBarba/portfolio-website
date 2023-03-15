@@ -10,7 +10,7 @@ import './App.css';
 import linkedinLogo from "./assets/linkedinLogo.png"
 import upworkLogo from "./assets/upwork.png"
 import lpLogo from "./assets/LPLogo.png"
-
+import githubLogo from"./assets/github-logo.png"
 
 export default function App() {
   const [cycle, setCycle] = useState(1)
@@ -19,8 +19,12 @@ export default function App() {
 
   let buttonEffect = document.getElementsByClassName("buttons")
   let videoEffects = document.getElementsByClassName("project-videos")
+  let footerLogos = document.getElementsByClassName("footer-logo")
+  let hiddenText = document.getElementsByClassName("hidden-text")
 
   const shift = useRef(window.innerHeight).current/2
+  const windowHeight = useRef(window.innerHeight).current
+
   const borderCapture = 70
 
   const videoEffectRes =60
@@ -35,23 +39,37 @@ export default function App() {
 
       
       if(window.scrollY>5){
-        for(let i=0;i<4;i++){
+        for(let i=0;i<videoEffects.length;i++){
         if(window.scrollY+shift>videoEffects[i].getBoundingClientRect().top+document.documentElement.scrollTop-borderCapture 
         && window.scrollY+shift<videoEffects[i].getBoundingClientRect().bottom+document.documentElement.scrollTop+borderCapture ){
           videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
           videoEffects[i].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
           videoEffects[i].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
           videoEffects[i].style.setProperty(`border`, `4px #00ff22 solid`) 
+          hiddenText[i].style.setProperty(`color`, `rgb(255,255,255)`)
         }
         else{
           videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
           videoEffects[i].style.setProperty(`border`, `3px solid #ff0000`)
+          hiddenText[i].style.setProperty(`color`, `rgb(0,0,0)`)
         }
       }}else{
+
         videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
         videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
       }
-    
+
+      for(let i=0;i<footerLogos.length;i++){
+      if(window.scrollY+windowHeight>footerLogos[0].getBoundingClientRect().bottom+document.documentElement.scrollTop ){
+        footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
+        footerLogos[i].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
+        footerLogos[i].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
+        //footerLogos[i].style.setProperty(`border`, `4px #00ff22 solid`) 
+      }else{
+        footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(255,255,255,0.75)`)
+       // footerLogos[i].style.setProperty(`border`, `0px solid transparent`)
+      }
+    }
       }catch{
 
       }
@@ -89,7 +107,7 @@ export default function App() {
 
           <Col span={24} >
             <Button className='buttons' href='https://www.linkedin.com/in/daniel-e-barba/'>LinkedIn</Button>
-            <Button className='buttons' href='https://github.com/DanielEduardoBarba?tab=repositories'>Github</Button>
+            <Button className='buttons' href='https://github.com/DanielEduardoBarba'>Github</Button>
             <Button className='buttons' href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>Upwork</Button>
             <Button className='buttons' href='mailto:danieleduardobarba@gmail.com'>Email</Button>
             <Button className='buttons' href='https://www.linearprototypes.com/'>Business</Button>
@@ -125,7 +143,7 @@ export default function App() {
             <a href='https://pig-e-bank-app.firebaseapp.com/'>
               <video className='project-videos' src={pigebankDemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
+            <p className='hidden-text' style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
           
           </Col>
 
@@ -140,7 +158,7 @@ export default function App() {
             <a href='https://chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to PLAY!</p>
+            <p className='hidden-text' style={{fontWeight:900, fontSize:'4vw'}}>TAP to PLAY!</p>
           
           </Col>
         </Row>
@@ -154,7 +172,7 @@ export default function App() {
             <a href='https://calculator-react-example-deb.web.app/'>
               <video className='project-videos' src={calcdemo} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
+            <p className='hidden-text' style={{fontWeight:900, fontSize:'4vw'}}>TAP to TRY!</p>
           
           </Col>
         </Row>
@@ -167,10 +185,20 @@ export default function App() {
             <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
               <video className='project-videos' src={pts} playsInline autoPlay loop muted />
             </a>
-            <p style={{fontWeight:900, fontSize:'4vw'}}>TAP to see more!</p>
+            <p className='hidden-text' style={{fontWeight:900, fontSize:'4vw'}}>TAP to see more!</p>
           
           </Col>
         </Row>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
         <Row className='projects'  >
           <Col >
@@ -185,6 +213,11 @@ export default function App() {
 
         <a href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>
         <img className='footer-logo' src={upworkLogo}/>
+        </a>
+
+      
+        <a href='https://github.com/DanielEduardoBarba'>
+        <img className='footer-logo' src={githubLogo}/>
         </a>
       </div>
       </Col>

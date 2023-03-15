@@ -4,7 +4,7 @@
   -webkit-box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 1);
   border: 3px white solid;
-  background-color: black;
+  background-color: #000000;
   translate: 5px 30px;
 }
 
@@ -23,8 +23,9 @@
 
 .project-divider {
   transition: 2s;
-  width: 100vw;
+  width: 90vw;
   font-size: 40px;
+
 }
 
 .project-comments {
@@ -38,6 +39,7 @@
   border: 3px solid #ff0000;
   border-radius: 50px;
   width: 60vw;
+  max-width: 400px;
   max-height: 70%;
   justify-content: center;
   padding: 10px;
@@ -126,12 +128,10 @@
 }
 .footer-logo{
   z-index: -100;
-  margin: 10vw;
-    width: 15vw;
-    height: auto;
-    background-color: white;
-    border-radius: 10vw;
-    box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
--webkit-box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
--moz-box-shadow: 0px -1px 50px 10px rgba(255,255,255,0.75);
-}
+  transition: 2s ease-in-out;
+  margin: 5vw;
+  width: 15vw;
+  height: auto;
+  background-color: white;
+  border-radius: 50%;
+ }
