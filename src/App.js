@@ -28,51 +28,43 @@ export default function App() {
   const borderCapture = 70
 
   const videoEffectRes =60
-  const cycleSpeed = 10
+  const cycleSpeed = 40
 
 
   useEffect(() => {
+    
+          try{
+          if(window.scrollY>5){
+            for(let i=0;i<videoEffects.length;i++){
+            if(window.scrollY+shift>videoEffects[i].getBoundingClientRect().top+document.documentElement.scrollTop-borderCapture 
+            && window.scrollY+shift<videoEffects[i].getBoundingClientRect().bottom+document.documentElement.scrollTop+borderCapture ){
+              videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
+              videoEffects[i].style.setProperty(`border`, `4px #00ff22 solid`) 
+              hiddenText[i].style.setProperty(`color`, `rgb(255,255,255)`)
+            }
+            else{
+              videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+              videoEffects[i].style.setProperty(`border`, `3px solid #ff0000`)
+              hiddenText[i].style.setProperty(`color`, `rgb(0,0,0)`)
+            }
+          }}else{
+    
+            videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
+            videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
+          }
+    
+          for(let i=0;i<footerLogos.length;i++){
+          if(window.scrollY+windowHeight>footerLogos[0].getBoundingClientRect().bottom+document.documentElement.scrollTop ){
+            footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
+          }else{
+            footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(255,255,255,0.75)`)
+          }
+        }
+          }catch{
+    
+          }
 
     setTimeout(() => {
-
-      try{
-
-      
-      if(window.scrollY>5){
-        for(let i=0;i<videoEffects.length;i++){
-        if(window.scrollY+shift>videoEffects[i].getBoundingClientRect().top+document.documentElement.scrollTop-borderCapture 
-        && window.scrollY+shift<videoEffects[i].getBoundingClientRect().bottom+document.documentElement.scrollTop+borderCapture ){
-          videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[i].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[i].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(0,255,34,0.75)`)
-          videoEffects[i].style.setProperty(`border`, `4px #00ff22 solid`) 
-          hiddenText[i].style.setProperty(`color`, `rgb(255,255,255)`)
-        }
-        else{
-          videoEffects[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
-          videoEffects[i].style.setProperty(`border`, `3px solid #ff0000`)
-          hiddenText[i].style.setProperty(`color`, `rgb(0,0,0)`)
-        }
-      }}else{
-
-        videoEffects[0].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(0,255,34,0.75)`)
-        videoEffects[0].style.setProperty(`border`, `3px solid #ff0000`)
-      }
-
-      for(let i=0;i<footerLogos.length;i++){
-      if(window.scrollY+windowHeight>footerLogos[0].getBoundingClientRect().bottom+document.documentElement.scrollTop ){
-        footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
-        footerLogos[i].style.setProperty(`-webkit-box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
-        footerLogos[i].style.setProperty(` -moz-box-shadow`, `0px 0px 130px 50px rgba(255,255,255,0.75)`)
-        //footerLogos[i].style.setProperty(`border`, `4px #00ff22 solid`) 
-      }else{
-        footerLogos[i].style.setProperty(`box-shadow`, `0px 0px 0px 0px rgba(255,255,255,0.75)`)
-       // footerLogos[i].style.setProperty(`border`, `0px solid transparent`)
-      }
-    }
-      }catch{
-
-      }
 
       try {
             if (deg+videoEffectRes <= 360) setDeg(deg + videoEffectRes)
@@ -87,7 +79,7 @@ export default function App() {
             else if(turn===2) color = `#14a800`
             else if(turn===4) color = `#9a902e`
             
-           if(turn < buttonEffect.length) buttonEffect[turn].style.setProperty(`background`, `linear-gradient(${deg}deg, ${color} 0%, #000000 70%)`)
+           if(turn < buttonEffect.length)buttonEffect[turn].style.setProperty(`background`, `linear-gradient(${deg}deg, ${color} 0%, #000000 70%)`)
       } catch {
         
       }
