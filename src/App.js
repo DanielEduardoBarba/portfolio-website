@@ -6,11 +6,11 @@ import pts from "./assets/pts.mp4"
 import calcdemo from "./assets/calc-demo.mp4"
 import chessdemo from "./assets/chess-demo.mp4"
 import pigebankDemo from "./assets/short-pigebank-demo.mp4"
-import './App.css';
 import linkedinLogo from "./assets/linkedinLogo.png"
 import upworkLogo from "./assets/upwork.png"
 import lpLogo from "./assets/LPLogo.png"
 import githubLogo from"./assets/github-logo.png"
+import './App.css';
 
 export default function App() {
   const [cycle, setCycle] = useState(1)
@@ -117,7 +117,7 @@ export default function App() {
           
           <Col span={14}className='aboutme' >
             <h1>Hey I'm Daniel!</h1>
-            <p >I'm an engineer in practice and an inventor at heart, with years of experience in prototyping hardware, software, electronics and manufacturing aerospace and industrial components, let's make your idea come alive!</p>
+            <p >I'm an engineer in practice and an inventor at heart, with years of experience in prototyping hardware, software, electronics and manufacturing aerospace and industrial components. Let's make your idea come alive!</p>
             <h2 style={{fontSize:"4vw"}}>Contact me above!</h2>
 
           </Col>
@@ -130,7 +130,8 @@ export default function App() {
       <Row className='projects'  >
           <Col >
             <Divider className='project-divider' style={projectdivider} orientation="left">Pig E Bank</Divider>
-            <p className='project-comments'> A finance and chore tracking app for kids!</p>
+            <p className='project-comments'>A finance and chore tracking app for kids!</p>
+            <p className='project-comments'>React | HTML/CSS | Express | AWS | MySQL | MongoDB | JS</p>
             <a href='https://github.com/DanielEduardoBarba/pig-e-bank-app'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://pig-e-bank-app.firebaseapp.com/'>
               <video className='project-videos' src={pigebankDemo} playsInline autoPlay loop muted />
@@ -145,7 +146,9 @@ export default function App() {
           <Col >
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Online Chess Game</Divider>
-            <p className='project-comments'> Built on React and CSS/HTML with an Express API</p>
+            <p className='project-comments'>An online chess app with chat/game rooms!</p>
+            <p className='project-comments'>React | HTML/CSS | Express | GCP | FireStoreDB | JS</p>
+            <p className='project-comments'></p>
             <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://chess-online-deb.firebaseapp.com'>
               <video className='project-videos' src={chessdemo} playsInline autoPlay loop muted />
@@ -159,7 +162,8 @@ export default function App() {
           <Col >
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Simple Calculator</Divider>
-            <p className='project-comments'>Built with only state variables on a single React component</p>
+            <p className='project-comments'>Classic and simple calculator</p>
+            <p className='project-comments'>React | HTML/CSS | JS</p>
             <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://calculator-react-example-deb.web.app/'>
               <video className='project-videos' src={calcdemo} playsInline autoPlay loop muted />
@@ -172,7 +176,8 @@ export default function App() {
         <Row className='projects'  >
           <Col >
             <Divider className='project-divider' style={projectdivider} orientation="left">Pistol Training System</Divider>
-            <p className='project-comments'> A wireless MVP prototype for firearm training using arduino and C#</p>
+            <p className='project-comments'>A wireless MVP prototype for firearm training!</p>
+            <p className='project-comments'>WinForms | Arduino | C++ | C#</p>
             <a href='https://github.com/DanielEduardoBarba/Pistol-Training-System'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://www.youtube.com/watch?v=Ba2qaQILcww&ab_channel=LinearPrintingLLC'>
               <video className='project-videos' src={pts} playsInline autoPlay loop muted />
@@ -229,6 +234,7 @@ export default function App() {
 
 const projectdivider = {
   border: 'red',
+  fontSize: '3vw',
   color: "white",
 }
 

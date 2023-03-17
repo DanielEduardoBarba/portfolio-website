@@ -60,7 +60,7 @@
 }
 
 .hero-image {
-  background-image: url("./assets/hero-background.jpg");
+  background-image: url("./assets/background.jpg");
   background-size: cover;
   background-repeat: repeat;
   position: absolute;
