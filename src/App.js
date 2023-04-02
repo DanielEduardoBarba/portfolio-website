@@ -147,7 +147,7 @@ export default function App() {
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Online Chess Game</Divider>
             <p className='project-comments'>An online chess app with chat/game rooms!</p>
-            <p className='project-comments'>React | HTML/CSS | Express | GCP | FireStoreDB | JS</p>
+            <p className='project-comments'>React | HTML/CSS | Express | GCP | FireStore | JS</p>
             <p className='project-comments'></p>
             <a href='https://github.com/DanielEduardoBarba/chess-client-react-jsx'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://chess-online-deb.firebaseapp.com'>
@@ -162,7 +162,7 @@ export default function App() {
           <Col >
 
             <Divider className='project-divider' style={projectdivider} orientation="left">Simple Calculator</Divider>
-            <p className='project-comments'>Classic and simple calculator</p>
+            <p className='project-comments'>Classic and simple calculator!</p>
             <p className='project-comments'>React | HTML/CSS | JS</p>
             <a href='https://github.com/DanielEduardoBarba/calculator-react-app-example'><p style={{fontSize:'3vw'}}>See the Repo!</p></a>
             <a href='https://calculator-react-example-deb.web.app/'>
