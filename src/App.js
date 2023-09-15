@@ -102,7 +102,7 @@ export default function App() {
             <Button className='buttons' href='https://github.com/DanielEduardoBarba'>Github</Button>
             <Button className='buttons' href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>Upwork</Button>
             <Button className='buttons' href='mailto:danieleduardobarba@gmail.com'>Email</Button>
-            <Button className='buttons' href='https://www.linearprototypes.com/'>Business</Button>
+            {/* <Button className='buttons' href='https://www.linearprototypes.com/'>Business</Button> */}
           </Col>
         </Row>
         <br/>
@@ -204,9 +204,9 @@ export default function App() {
         <img className='footer-logo' src={linkedinLogo}/>
         </a>
 
-        <a href='https://www.linearprototypes.com/'>
+        {/* <a href='https://www.linearprototypes.com/'>
         <img className='footer-logo' src={lpLogo}/>
-        </a>
+        </a> */}
 
         <a href='https://www.upwork.com/freelancers/~010d685dd4debfa757'>
         <img className='footer-logo' src={upworkLogo}/>
