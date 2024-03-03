@@ -7,48 +7,22 @@
   background-color: #000000;
   translate: 5px 30px;
 }
+ 
 
-.project-layout {
-  background-color: transparent;
-
-}
-
-.projects {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0px;
-}
-
-.project-divider {
-  transition: 2s;
-  width: 90vw;
-  font-size: 40px;
-
-}
-
-.project-comments {
-  color: white;
-  font-size: calc(3vw);
-  z-index: -1;
-}
-
-.project-videos {
-  transition: 0.2s ease-out;
-  border: 3px solid #ff0000;
-  border-radius: 50px;
-  width: 60vw;
-  max-width: 400px;
-  max-height: 70%;
-  justify-content: center;
-  padding: 10px;
-  margin: 0 auto;
-}
-
+/* 
 .project-videos:hover {
   border: 4px #00ff22 solid;
   box-shadow: 0px 0px 20px 5px rgba(0, 255, 34, 0.75);
+} */
+
+.app-container {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  /* display: block; */
+  position: relative;
+  background-color: #000000;
+  border: 3px solid green;
 }
 
 .hero {
@@ -63,23 +37,10 @@
   background-image: url("./assets/background.jpg");
   background-size: cover;
   background-repeat: repeat;
-  position: absolute;
-  translate: -10px -10px;
-  overflow: hidden;
-  padding-left: 25%;
-  padding-right: 15%;
-  padding-top: 12%;
-  padding-bottom: 10px;
-  filter: blur(2px);
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 105px 30px rgba(0, 0, 0, 0.5) inset;
-  -webkit-box-shadow: 0px 0px 105px 30px rgba(0, 0, 0, 0.5) inset;
-  -moz-box-shadow: 0px 0px 105px 30px rgba(0, 0, 0, 0.5) inset;
 }
 
 
-.buttons {
+.button {
   background: #000000;
   border-color: #000000;
   color: white;
@@ -91,7 +52,7 @@
 
 }
 
-.buttons:hover {
+.button:hover {
   transform: scale(1);
   transition: 0.2s linear;
   box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.75);
@@ -101,7 +62,7 @@
 
 }
 
-.buttons:active {
+.button:active {
   transform: scale(0.9);
   transition: 0.02s linear;
   box-shadow: 0px 0px 20px 30px rgba(255, 255, 255, 0.75);
@@ -135,3 +96,8 @@
   background-color: white;
   border-radius: 50%;
  }
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
